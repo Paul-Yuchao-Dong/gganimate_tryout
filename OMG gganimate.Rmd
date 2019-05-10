@@ -1,0 +1,24 @@
+---
+title: "OMG gganimate"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(gganimate)
+```
+```{r}
+p <- ggplot(iris, aes(Petal.Width, Petal.Length)) +
+  geom_point()
+p
+```
+```{r}
+anim <- p + 
+  transition_states(Species,
+                    transition_length = 2,
+                    state_length = 1)
+
+anim
+```
+
